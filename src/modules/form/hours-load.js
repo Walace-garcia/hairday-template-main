@@ -6,11 +6,13 @@ import { hoursClick } from "./hours-click.js";
 const hours = document.getElementById("hours");
 
 export function hoursLoad({ date }) {
+  // Limpa a lista de horários
+  hours.innerHTML = "";
+
   const opening = openingHours.map((hour) => {
     //recupera somente a hora
 
     const [schedulesHour] = hour.split(":");
-    console.log(schedulesHour);
 
     //Adiciona a hora na date e verifica se está no passado.
     const isHourPast = dayjs(date).add(schedulesHour, "hour").isAfter(dayjs());
